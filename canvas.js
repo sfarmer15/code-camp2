@@ -1,5 +1,10 @@
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
-ctx.moveTo(0,0);
-ctx.lineTo(200,100);
+
+
+ctx.beginPath();
+ctx.arc(150,150,80,0,2*Math.PI);
+ctx.strokeStyle="red";
+ctx.fillStyle="yellow";
 ctx.stroke();
+ctx.fill();
