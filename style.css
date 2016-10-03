@@ -8,3 +8,6 @@ img {
 p.lead{
     color: white;
 }
+canvas{
+    border: 1px dotted white;
+}
