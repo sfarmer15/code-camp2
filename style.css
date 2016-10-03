@@ -1,0 +1,10 @@
+body {
+    background-color: green;
+    margin: 53px;
+}
+img {
+    border: 5px solid black;
+}
+p.lead{
+    color: white;
+}
