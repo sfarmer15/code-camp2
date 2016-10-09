@@ -53,8 +53,8 @@ function onKeyDown(event) {
             radius: r=Math.floor(Math.random()*40),
             stroke: "rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+")",
             fill: "rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+")",
-            dx: Math.floor(Math.random())*r+5,
-            dy: Math.floor(Math.random())*r-5,
+            dx: Math.floor(Math.random()*r)+5,
+            dy: Math.floor(Math.random()*r)-5,
         });
     }
 };
