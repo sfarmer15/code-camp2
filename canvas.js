@@ -20,11 +20,11 @@ console.log('initialized circles', circles);
 
 setInterval(update, 100);
 
+document.addEventListener("keydown", onKeyDown);
 
 
 function update() {
     ctx.clearRect(0,0,c.width,c.height);
-
     for (var i=0; i<circles.length; i++){
         drawCircle(circles[i]);
     };
@@ -43,4 +43,17 @@ function drawCircle(circle) {
     ctx.fillStyle=fill;
     ctx.stroke();
     ctx.fill();
+}
+function onKeyDown(event) {
+    if(event.keyCode==32) {
+        event.preventDefault();
+        console.log("you pressed the spacebar")
+        circles.push({
+            x: Math.floor(Math.random()*c.width),
+            y: Math.floor(Math.random()*c.height),
+            radius: Math.floor(Math.random()*0.5*c.height),
+            stroke: "rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+")",
+            fill: "rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+")"
+        });
+    }
 }
