@@ -1,22 +1,7 @@
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
-var circles=[{
-    x: 200,
-    y: 300,
-    radius: 40,
-    stroke: "black",
-    fill: "white"
-}];
-
-circles.push({
-    x: 250,
-    y: 250,
-    radius: 53,
-    stroke: "green",
-    fill: "pink"
-});
-console.log('initialized circles', circles);
+var circles=[];
 
 setInterval(update, 100);
 
@@ -27,6 +12,8 @@ function update() {
     ctx.clearRect(0,0,c.width,c.height);
     for (var i=0; i<circles.length; i++){
         drawCircle(circles[i]);
+        circles[i].x+=circles[i].dx;
+        circles[i].y+=circles[i].dy;
     };
     //drawCircle();
 }
@@ -53,7 +40,9 @@ function onKeyDown(event) {
             y: Math.floor(Math.random()*c.height),
             radius: Math.floor(Math.random()*0.5*c.height),
             stroke: "rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+")",
-            fill: "rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+")"
+            fill: "rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+")",
+            dx: Math.floor(Math.random()*10)-5,
+            dy: Math.floor(Math.random()*20)-10
         });
     }
 }
