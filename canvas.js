@@ -1,31 +1,34 @@
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
-var circle1x=200;
-var circle1={
+var circles=[{
     x: 200,
     y: 300,
     radius: 40,
     stroke: "black",
     fill: "white"
-};
-var circle2={
+}];
+
+circles.push({
     x: 250,
     y: 250,
     radius: 53,
     stroke: "green",
     fill: "pink"
-};
+});
+console.log('initialized circles', circles);
+
 setInterval(update, 100);
 
 
 
 function update() {
     ctx.clearRect(0,0,c.width,c.height);
-    drawCircle(circle1);
-    drawCircle();
-    drawCircle(circle2);
-    circle1.x+=5;
+
+    for (var i=0; i<circles.length; i++){
+        drawCircle(circles[i]);
+    };
+    //drawCircle();
 }
 function drawCircle(circle) {
     circle=circle||{};
