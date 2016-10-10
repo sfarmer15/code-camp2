@@ -6,7 +6,7 @@ var circles=[];
 setInterval(update, 100);
 
 document.addEventListener("keydown", onKeyDown);
-document.addEventListener("click", onClick);
+c.addEventListener("click", onClick);
 
 
 function update() {
@@ -14,13 +14,22 @@ function update() {
     for (var i=0, circle; i<circles.length; i++){
         circle=circles[i];
         drawCircle(circle);
-        switch (true){
-            case (circle.x-circle.radius)<=0 || (circle.x+circle.radius)>=c.width:
-                circle.dx = -circle.dx;
-                circle.dy = -circle.dy;
-            case (circle.y-circle.radius)<=0 || (circle.y+circle.radius)>=c.height:
-                circle.dy = -circle.dy;
+         if(circle.x-circle.radius<=0){
+            circle.x = 0+circle.radius;
+            circle.dx = -circle.dx;
         };
+        if(circle.x+circle.radius>=c.width){
+            circle.x = c.width-circle.radius;
+            circle.dx = -circle.dx;
+        };
+        if(circle.y-circle.radius<=0){
+            circle.y = 0+circle.radius;
+            circle.dy = -circle.dy
+        };       
+        if((circle.y+circle.radius)>=c.height){
+            circle.y = c.height-circle.radius;
+            circle.dy = -circle.dy;
+        }; 
        
             circle.x+=circle.dx;
             circle.y+=circle.dy;
@@ -60,6 +69,7 @@ function onKeyDown(event) {
 };
 function onClick(click){
     console.log(click);
+    var r
     circles.push({
         x:click.layerX,
         y:click.layerY,
